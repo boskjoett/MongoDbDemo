@@ -21,7 +21,7 @@ namespace MongoDbDemo.Controllers
             return await _todoRepository.GetAllAsync();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:length(24)}")]
         public async Task<ActionResult<TodoItem>> Get(string id)
         {
             var todoItem = await _todoRepository.GetAsync(id);
@@ -42,7 +42,7 @@ namespace MongoDbDemo.Controllers
             return CreatedAtAction(nameof(Get), new { id = newTodo.Id }, newTodo);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id:length(24)}")]
         public async Task<IActionResult> Update(string id, TodoItem updatedTodo)
         {
             var todoItem = await _todoRepository.GetAsync(id);
@@ -59,7 +59,7 @@ namespace MongoDbDemo.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:length(24)}")]
         public async Task<IActionResult> Delete(string id)
         {
             var todoItem = await _todoRepository.GetAsync(id);
