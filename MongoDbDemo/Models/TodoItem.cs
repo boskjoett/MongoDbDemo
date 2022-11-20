@@ -10,7 +10,7 @@ namespace MongoDbDemo.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
 
-        [Display(Name ="Creation date")]
+        [Display(Name ="Creation time")]
         public DateTime CreationTime { get; set; }
 
         [Display(Name = "Created by")]
@@ -20,6 +20,7 @@ namespace MongoDbDemo.Models
         public string? AssignedTo { get; set; } = null!;
 
         [Display(Name = "Due date")]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         [BsonDateTimeOptions(Kind = DateTimeKind.Local, DateOnly = true)] 
         public DateTime? DueDate { get; set; }
 

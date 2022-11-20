@@ -13,11 +13,32 @@
             @Html.DisplayNameFor(model => model.Todo.Title)
         </dt>
         <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Todo.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Todo.Description)
+        </dt>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Todo.Description)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Todo.CreatedBy)
         </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Todo.CreatedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Todo.AssignedTo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Todo.AssignedTo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Todo.DueDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Todo.DueDate)
+        </dd>
     </dl>
 
     <form method="post">

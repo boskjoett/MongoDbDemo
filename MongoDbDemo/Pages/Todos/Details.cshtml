@@ -38,13 +38,18 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Todo.AssignedTo)
-        </dt>
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Todo.DueDate)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Todo.DueDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Todo.Priority)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Todo.Priority)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Todo.CompletedAt)
