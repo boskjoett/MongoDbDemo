@@ -13,6 +13,8 @@ namespace MongoDbDemo.Models
 
         public string CreatedBy { get; set; } = null!;
 
+        public string? AssignedTo { get; set; } = null!;
+
         public DateTime? DueDate { get; set; }
 
         public DateTime? Completed { get; set; }

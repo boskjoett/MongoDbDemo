@@ -1,0 +1,55 @@
+﻿@page
+@model MongoDbDemo.Pages.Todos.IndexModel
+
+@{
+    ViewData["Title"] = "Things to Do";
+}
+<h3>Things to Do</h3>
+
+<table table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Todos[0].Title)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Todos[0].CreationTime)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Todos[0].DueDate)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Todos[0].AssignedTo)
+            </th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Todos)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreationTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DueDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssignedTo)
+                </td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.Id" data-toggle="tooltip" title="View" class="text-decoration-none text-reset"><i class="bi bi-eye"></i></a> &nbsp;
+                    <a asp-page="./Edit" asp-route-id="@item.Id" data-toggle="tooltip" title="Edit" class="text-decoration-none text-reset"><i class="bi bi-pencil"></i></a> &nbsp;
+                    <a asp-page="./Delete" asp-route-id="@item.Id" data-toggle="tooltip" title="Delete" class="text-decoration-none text-reset"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a class="btn btn-primary" asp-page="Create">Create New</a>
+</p>

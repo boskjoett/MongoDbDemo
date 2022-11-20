@@ -8,23 +8,23 @@ namespace MongoDbDemo.Controllers
     [ApiController]
     public class TodosController : ControllerBase
     {
-        private readonly ITodosRepository _todoRepository;
+        private readonly ITodosRepository _todosRepository;
 
         public TodosController(ITodosRepository todoRepository)
         {
-            _todoRepository = todoRepository;
+            _todosRepository = todoRepository;
         }
 
         [HttpGet]
         public async Task<List<TodoItem>> GetAll()
         {
-            return await _todoRepository.GetAllAsync();
+            return await _todosRepository.GetAllAsync();
         }
 
         [HttpGet("{id:length(24)}")]
         public async Task<ActionResult<TodoItem>> Get(string id)
         {
-            var todoItem = await _todoRepository.GetAsync(id);
+            var todoItem = await _todosRepository.GetAsync(id);
 
             if (todoItem is null)
             {
@@ -37,7 +37,7 @@ namespace MongoDbDemo.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(TodoItem newTodo)
         {
-            await _todoRepository.CreateAsync(newTodo);
+            await _todosRepository.CreateAsync(newTodo);
 
             return CreatedAtAction(nameof(Get), new { id = newTodo.Id }, newTodo);
         }
@@ -45,7 +45,7 @@ namespace MongoDbDemo.Controllers
         [HttpPut("{id:length(24)}")]
         public async Task<IActionResult> Update(string id, TodoItem updatedTodo)
         {
-            var todoItem = await _todoRepository.GetAsync(id);
+            var todoItem = await _todosRepository.GetAsync(id);
 
             if (todoItem is null)
             {
@@ -54,7 +54,7 @@ namespace MongoDbDemo.Controllers
 
             updatedTodo.Id = todoItem.Id;
 
-            await _todoRepository.UpdateAsync(id, updatedTodo);
+            await _todosRepository.UpdateAsync(id, updatedTodo);
 
             return NoContent();
         }
@@ -62,14 +62,14 @@ namespace MongoDbDemo.Controllers
         [HttpDelete("{id:length(24)}")]
         public async Task<IActionResult> Delete(string id)
         {
-            var todoItem = await _todoRepository.GetAsync(id);
+            var todoItem = await _todosRepository.GetAsync(id);
 
             if (todoItem is null)
             {
                 return NotFound();
             }
 
-            await _todoRepository.DeleteAsync(id);
+            await _todosRepository.DeleteAsync(id);
 
             return NoContent();
         }
