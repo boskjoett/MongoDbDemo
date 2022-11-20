@@ -18,6 +18,7 @@ namespace MongoDbDemo.Pages.Todos
         public async Task OnGetAsync()
         {
             Todos = await _todosRepository.GetAllAsync();
+            Todos = Todos.OrderBy(x => x.DueDate).ToList();
         }
     }
 }

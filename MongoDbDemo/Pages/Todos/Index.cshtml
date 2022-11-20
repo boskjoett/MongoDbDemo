@@ -13,13 +13,16 @@
                 @Html.DisplayNameFor(model => model.Todos[0].Title)
             </th>
             <th scope="col">
+                @Html.DisplayNameFor(model => model.Todos[0].AssignedTo)
+            </th>
+            <th scope="col">
                 @Html.DisplayNameFor(model => model.Todos[0].CreationTime)
             </th>
             <th scope="col">
                 @Html.DisplayNameFor(model => model.Todos[0].DueDate)
             </th>
             <th scope="col">
-                @Html.DisplayNameFor(model => model.Todos[0].AssignedTo)
+                @Html.DisplayNameFor(model => model.Todos[0].CompletedAt)
             </th>
             <th scope="col"></th>
         </tr>
@@ -32,13 +35,16 @@
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.AssignedTo)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.CreationTime)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DueDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AssignedTo)
+                    @Html.DisplayFor(modelItem => item.CompletedAt)
                 </td>
                 <td>
                     <a asp-page="./Details" asp-route-id="@item.Id" data-toggle="tooltip" title="View" class="text-decoration-none text-reset"><i class="bi bi-eye"></i></a> &nbsp;
