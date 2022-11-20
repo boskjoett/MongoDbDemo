@@ -17,7 +17,7 @@ namespace MongoDbDemo.Pages.Todos
 
         public async Task OnGetAsync()
         {
-            await _todosRepository.GetAllAsync();
+            Todos = await _todosRepository.GetAllAsync();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace MongoDbDemo.Pages.Todos
 
         public IActionResult OnGet()
         {
-            Todo = new TodoItem { CreationTime = DateTime.Now };
+            Todo = new TodoItem();
             return Page();
         }
 
@@ -28,6 +28,12 @@ namespace MongoDbDemo.Pages.Todos
             if (!ModelState.IsValid)
             {
                 return Page();
+            }
+
+            Todo.CreationTime = DateTime.Now;
+            if (Todo.DueDate.HasValue)
+            {
+                Todo.DueDate = new DateTime(Todo.DueDate.Value.Year, Todo.DueDate.Value.Month, Todo.DueDate.Value.Day, 0, 0, 0);
             }
 
             await _todosRepository.CreateAsync(Todo);
