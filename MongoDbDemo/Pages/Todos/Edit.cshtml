@@ -1,0 +1,64 @@
+﻿@page
+@model MongoDbDemo.Pages.Todos.EditModel
+
+@{
+    ViewData["Title"] = "Edit To Do";
+}
+
+<h2>Edit To Do</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Todo.Id" />
+
+            <div class="form-group">
+                <label asp-for="Todo.Title" class="control-label"></label>
+                <input asp-for="Todo.Title" class="form-control" />
+                <span asp-validation-for="Todo.Title" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Todo.Description" class="control-label"></label>
+                <input asp-for="Todo.Description" class="form-control" />
+                <span asp-validation-for="Todo.Description" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Todo.CreatedBy" class="control-label"></label>
+                <input asp-for="Todo.CreatedBy" class="form-control" />
+                <span asp-validation-for="Todo.CreatedBy" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Todo.AssignedTo" class="control-label"></label>
+                <input asp-for="Todo.AssignedTo" class="form-control" />
+                <span asp-validation-for="Todo.AssignedTo" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Todo.DueDate" class="control-label"></label>
+                <input asp-for="Todo.DueDate" class="form-control" />
+                <span asp-validation-for="Todo.DueDate" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Todo.CompletedAt" class="control-label"></label>
+                <input asp-for="Todo.CompletedAt" class="form-control" />
+                <span asp-validation-for="Todo.CompletedAt" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a class="btn btn-secondary" asp-page="./Index">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
